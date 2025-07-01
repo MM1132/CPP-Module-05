@@ -64,7 +64,6 @@ void tests_ex01()
 	
 	std::cout << myBureaucrat << std::endl;
 	std::cout << myForm << std::endl;
-
 }
 
 int main()

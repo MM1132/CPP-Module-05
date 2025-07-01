@@ -46,8 +46,8 @@ class Bureaucrat
 		void decrementGrade();
 
 		static void checkGradeThrowError(int grade);
-
-		friend std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

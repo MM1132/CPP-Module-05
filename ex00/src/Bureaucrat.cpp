@@ -63,8 +63,8 @@ void Bureaucrat::checkGradeThrowError(int grade)
 		throw GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat)
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
-	os << bureaucrat.m_name << ", bureaucrat grade " << bureaucrat.m_grade << ".";
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return os;
 }
