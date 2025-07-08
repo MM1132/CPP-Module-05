@@ -1,24 +1,29 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-// VV All the stuff that every Class we create has anyways
+// Dies ist der Standardkonstruktor für den Fall, dass wir nichts angeben
 Bureaucrat::Bureaucrat() :
 	m_name("<undefined_bureaucrat_name>"), m_grade(Bureaucrat::GRADE_MIN)
 {}
 
+// Dies ist für den Fall, dass wir Namen und Grad angeben
 Bureaucrat::Bureaucrat(std::string name, int grade):
 	m_name(name)
 {
+	// Überprüfung des Grades hier. Wenn alles in Ordnung ist, wird es einfach weitergehen
 	Bureaucrat::checkGradeThrowError(grade);
 	m_grade = grade;
 }
 
+// Das ist die cupy konstruktor
 Bureaucrat::Bureaucrat(const Bureaucrat& other): m_name(other.m_name), m_grade(other.m_grade) {};
 
+// Dies ist fur den equals ooperator
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this != &other)
 	{
+		// We can only change the grade, as name is constant
 		this->m_grade = other.m_grade;
 	}
 	return (*this);
@@ -29,7 +34,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat " << m_name << " has been deconstructed now :c" << std::endl;
 }
 
-// ^^ All the stuff that every Class we create has anyways
+// END OF ORTHODOX CANONICAL FORM
 
 std::string Bureaucrat::getName() const noexcept
 {
@@ -63,6 +68,8 @@ void Bureaucrat::checkGradeThrowError(int grade)
 		throw GradeTooLowException();
 }
 
+// This is one of the most confusing parts here
+// But we can understand it so there is no problem really
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";

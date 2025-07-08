@@ -24,14 +24,15 @@ Form& Form::operator=(const Form& other)
 {
 	if (this != &other)
 	{
+		// This is the only thing that is not constant
 		this->m_isSigned = other.m_isSigned;
 	}
 	return (*this);
 }
 
 Form::~Form() {}
+// END OF THE ORTHODOX CANONICAL FORM STUFF
 
-// End of the Orthodox Canonical Form stuff
 std::string Form::getName() const
 {
 	return this->m_name;

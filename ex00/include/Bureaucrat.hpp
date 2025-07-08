@@ -24,22 +24,20 @@ class Bureaucrat
 		std::string getName() const noexcept;
 		int getGrade() const noexcept;
 
-		class GradeTooHighException : public std::exception
+		struct GradeTooHighException : public std::exception
 		{
-			public:
-				virtual const char* what() const noexcept override
-				{
-					return "Grade is too high";
-				}
+			virtual const char* what() const noexcept override
+			{
+				return "Grade is too high";
+			}
 		};
 
-		class GradeTooLowException : public std::exception
+		struct GradeTooLowException : public std::exception
 		{
-			public:
-				virtual const char* what() const noexcept override
-				{
-					return "Grade is too low";
-				}
+			virtual const char* what() const noexcept override
+			{
+				return "Grade is too low";
+			}
 		};
 
 		void incrementGrade();

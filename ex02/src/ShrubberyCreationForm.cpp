@@ -9,9 +9,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
 	AForm("ShrubberyCreationForm", 145, 137), m_target(target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):
-	AForm(other.getName(), 
-	other.getGradeRequiredToSign(), 
-	other.getGradeRequiredToExec()), 
+	AForm(
+		other.getName(), 
+		other.getGradeRequiredToSign(), 
+		other.getGradeRequiredToExec()
+	), 
 	m_target(other.getTarget())
 {}
 
